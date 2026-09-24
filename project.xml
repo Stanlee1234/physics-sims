@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<haxedef name="MACOSX_VER=26.5" />
+	<meta title="Skater Without a Crown" package="com.zanzlanz.skaterwithoutacrown" version="0.1" company="Zanzlanz" />
+	<app main="Main" file="Skater Without a Crown" path="bin" />
+	
+	<window fps="59.97" failIfMajorPerformanceCaveat="false" allowHighDPI="true" />
+	<window width="2560" height="1440" if="cpp" />
+	<!--architecture name="x86" exclude="x64" if="windows" /--> <!-- Enable this line when using "32" build flag for 32bit -->
+	
+	<source path="src" />
+	
+	<haxelib name="lemongine" />
+	<haxelib name="lime" />
+	
+	<library id="default" type="gzip" preload="true" unless="cpp" />
+	<assets path="assets" library="default" exclude="icon.png" unless="cpp" />
+	<assets path="assets" exclude="icon.png|*.mp3" embed="true" if="cpp" />
+
+	<haxeflag name="-dce" value="full" />
+	<haxedef name="analyzer-optimize"/>
+
+	<android permission="android.permission.INTERNET"/>
+	
+	<icon path="assets/icon.png" />
+</project>
